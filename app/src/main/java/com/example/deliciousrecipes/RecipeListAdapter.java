@@ -14,9 +14,11 @@ import java.util.ArrayList;
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
     private final View.OnClickListener listener;
+    private final ArrayList<Recipe> recipeList;
 
-    public RecipeListAdapter(View.OnClickListener listener) {
+    public RecipeListAdapter(View.OnClickListener listener, ArrayList<Recipe> recipeList) {
         this.listener = listener;
+        this.recipeList = recipeList;
     }
 
     @NonNull
@@ -28,14 +30,14 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        holder.textViewFoodName.setText(MainActivity.recipeList.get(position).foodName);
-        holder.textViewFoodIntro.setText(MainActivity.recipeList.get(position).foodIntroText);
-        holder.imageView.setImageResource(MainActivity.recipeList.get(position).imageId);
+        holder.textViewFoodName.setText(recipeList.get(position).foodName);
+        holder.textViewFoodIntro.setText(recipeList.get(position).foodIntroText);
+        holder.imageView.setImageResource(recipeList.get(position).imageId);
         holder.itemView.setOnClickListener(listener);
     }
 
     @Override
     public int getItemCount() {
-        return MainActivity.recipeList.size();
+        return recipeList.size();
     }
 }

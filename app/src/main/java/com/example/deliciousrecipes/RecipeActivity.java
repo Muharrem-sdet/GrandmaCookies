@@ -15,6 +15,7 @@ public class RecipeActivity extends AppCompatActivity {
     private TextView recipeText;
     private int position;
     private final String LOG_TAG = "RecipeActivity";
+    public final String EXTRA_POSITION = "Extra_Position";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class RecipeActivity extends AppCompatActivity {
         recipeText = findViewById(R.id.recipe_text);
 
         Intent intent = getIntent();
-        position = intent.getIntExtra(MainActivity.EXTRA_POSITION, -1);
+        position = intent.getIntExtra(EXTRA_POSITION, -1);
         try {
             image.setImageResource(MainActivity.recipeList.get(position).imageId);
             recipeText.setText(MainActivity.recipeList.get(position).recipeLongText);

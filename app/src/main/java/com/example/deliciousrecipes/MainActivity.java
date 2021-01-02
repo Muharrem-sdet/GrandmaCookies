@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final ArrayList<Recipe> recipeList = new ArrayList<>();
     private RecyclerView recyclerView;
-    public static final String EXTRA_POSITION = "MainActivity.extra.holder.position";
+    public final String EXTRA_POSITION = "Extra_Position";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         View.OnClickListener listener = view -> onClickViewHolderAction(view);
 
-        RecipeListAdapter adapter = new RecipeListAdapter(listener);
+        RecipeListAdapter adapter = new RecipeListAdapter(listener, recipeList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
+
+        TextView textView = new TextView(getApplicationContext());
+        textView.getContext();
     }
 
     public void onClickViewHolderAction(View view) {
