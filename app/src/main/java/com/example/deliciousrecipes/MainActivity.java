@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-
-        TextView textView = new TextView(getApplicationContext());
-        textView.getContext();
     }
 
     public void onClickViewHolderAction(View view) {
